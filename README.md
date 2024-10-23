@@ -2,7 +2,7 @@
 
 Repozytorium zawiera docker z ROS 2 Humble, Gazebo Harmonic oraz Px4
 
-## Requirements
+## Wymagania
 
 - [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - [Nvidia Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#container-device-interface-cdi-support)
@@ -11,7 +11,7 @@ Repozytorium zawiera docker z ROS 2 Humble, Gazebo Harmonic oraz Px4
 > [!IMPORTANT]  
 > System operacyjnym Ubuntu jest wymagany ze względu na obsługę GUI (wymaga innego podejścia przy wykorzystaniu Windowsa).
 
-## First Start
+## Pierwsze uruchomienie
 
 Otwórz VS Code w katalogu z projektem.
 Przejdź do lewego dolnego rogu i kliknij niebieską ikonę z dwiema strzałkami skierowanymi do siebie. Z rozwijanego menu wybierz **"Open Folder in Container... ”** i poczekaj, aż docker się zbuduje. Może to potrwać do 10 minut przy wolniejszym połączeniu internetowym.
@@ -23,34 +23,33 @@ sudo ./setup.sh
 ./build.sh
 source install/setup.bash
 ```
-This will build your workspace. Next navigate to build directory and build PX4 in SITL.
+Powyższe komendy zbudują Twoją przestrzeń roboczą. Następnie przejdź do katalogu PX4, aby zbudować oprogramowanie w wersji SITL (ang. *Software in the loop*).
 ``` bash
 cd ~/PX4-Autopilot
 make px4_sitl gz_x500
 ```
+Po wywołaniu powyższych komend powinno pojawić się okno symulatora Gazebo z dodanym dronem.
 
-This will build PX4 in SITL mode and launch Gazebo with default drone inside.
-Those steps you will have to do only once. 
+> [!NOTE]
+> Chcąc uruchomić symulację drona w Gazebo należy za każdym razem użyć polecenia `make px4_sitl gz_x500`.
 
-Later in order to launch gazebo with drone you will have run `make px4_sitl gz_x500` every time. 
-
-After launching the simulation open new terminal and run:
+Po uruchomieniu symulacji, otwórz nowy terminal i wykonaj:
 ``` bash
-# this step can be incorporated into ROS launch files
+# ten krok mozna takze dodac do pliku ROS launch
 ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888
 ```
 
-In order to check available topics in new terminal window run:
+W celu sprawdzenia dostępnych topiców, w nowym oknie terminala wykonaj:
 ``` bash
 ros2 topic list
 ```
-Now you can see and subscribe to all of drone's topics.
+Teraz możesz sprawdzić i subskrybować wszystkie topici od drona.
 
 
 Po zalogowaniu się do dockera będzie on działał w sposób podobny do uruchamiania ROS na komputerze hosta. Wszystkie aplikacje GUI będą korzystać z domyślnego menedżera okien hosta, będziesz mieć również dostęp do wszystkich urządzeń na hoście, a także akceleracji GPU.
 Docker ma preinstalowany [ROS 2 Humble](https://docs.ros.org/en/humble/Tutorials.html) i większość potrzebnych zależności oraz symulator [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/getstarted/).
 
-## First step
+## Pierwsze kroki
 
 Dla osób, które nie miały doczynienia ze środowiskiem ROS 2 + Gazebo, zachęcam do przerobienia tutorialu: [Gazebo Tutorial](https://gazebosim.org/docs/harmonic/tutorials/). Pozwoli to zaznajomić się z tym środowiskiem i tworzyć w przyszłości zaawansowane symulacje.
 
@@ -72,12 +71,12 @@ Należy pamiętać, aby po zbudowaniu wywołać komendę lub pracować w nowym t
 > /home/developer/ros2_ws/install/setup.bash
 > ```
 
-## Example
+## Przykład
 1. Zbuduj obszar roboczy wraz z simple_example package.  
 2. Uruchom launcha `example.launch.py`, pokazujący, w jaki sposób należy połączyć Gazebo z ROS 2, aby możliwa była wzajemna komunikacja.
 
 
-## Resources
+## Dodatkowe materiały
 * [Getting Started](getting_started.md)
 * [ROS 2 Command Cheat Sheet](cheatsheet.md)
 * [ROS 2 Example packages in Python](example.md)
