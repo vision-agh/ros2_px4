@@ -16,6 +16,10 @@ Repozytorium zawiera docker z ROS 2 Humble, Gazebo Harmonic oraz Px4
 Otwórz VS Code w katalogu z projektem.
 Przejdź do lewego dolnego rogu i kliknij niebieską ikonę z dwiema strzałkami skierowanymi do siebie. Z rozwijanego menu wybierz **"Open Folder in Container... ”** i poczekaj, aż docker się zbuduje. Może to potrwać do 10 minut przy wolniejszym połączeniu internetowym.
 
+> [!TIP]
+> Dla osób korzystających z Windowsa oraz WSL 2 przygotowano `Dockerfile.windows` oraz `compose.windows.yaml`. 
+
+
 Run:
 ```
 cd ..
