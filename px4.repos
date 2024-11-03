@@ -2,7 +2,7 @@ repositories:
   vcs_repos/px4_msgs:
     type: git
     url: https://github.com/PX4/px4_msgs.git
-    version: main
+    version: release/1.15
 
   vcs_repos/px4_ros_com:
     type: git
